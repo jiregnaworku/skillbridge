@@ -21,7 +21,6 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
@@ -112,7 +111,6 @@ function App() {
         {/* 404 Page */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Router>
   );
 }
 
