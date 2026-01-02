@@ -15,6 +15,7 @@ import NotificationsPage from './pages/user/NotificationsPage';
 import SettingsPage from './pages/user/SettingsPage';
 import UnauthorizedPage from './pages/UnauthorizedPage';
 import NotFoundPage from './pages/NotFoundPage';
+import BrowseProfessionalsPage from './pages/BrowseProfessionalsPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout';
 import './App.css';
@@ -81,12 +82,7 @@ function App() {
           path="/browse" 
           element={
             <Layout>
-              <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-center">
-                  <h1 className="text-3xl font-bold text-gray-900 mb-4">Browse Nurses</h1>
-                  <p className="text-gray-600">Browse and connect with healthcare professionals</p>
-                </div>
-              </div>
+              <BrowseProfessionalsPage />
             </Layout>
           } 
         />

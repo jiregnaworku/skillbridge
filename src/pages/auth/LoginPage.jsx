@@ -62,7 +62,7 @@ const LoginPage = () => {
         {/* Brand */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-blue-600 tracking-tight">
-            Fev<span className="text-indigo-600">Nurse</span>
+            Skill<span className="text-indigo-600">Bridge</span>
           </h1>
           <p className="mt-2 text-sm text-slate-600">
             Connecting professionals with NGOs worldwide

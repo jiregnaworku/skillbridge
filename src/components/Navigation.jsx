@@ -64,7 +64,7 @@ const Navigation = () => {
                   to="/browse"
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
                 >
-                  Browse Nurses
+                  Browse Professionals
                 </Link>
                 
                 <Link
@@ -93,7 +93,7 @@ const Navigation = () => {
                   to="/browse"
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
                 >
-                  Browse Nurses
+                  Browse Professionals
                 </Link>
                 <Link
                   to="/how-it-works"

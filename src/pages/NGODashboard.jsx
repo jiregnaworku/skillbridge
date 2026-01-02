@@ -4,6 +4,76 @@ import {
   Briefcase, Star, User
 } from "./Icons"; // keep your icons as-is
 
+// Mock data for professionals
+const mockUsers = [
+  {
+    id: 1,
+    fullName: "Dr. Sarah Johnson",
+    fieldOfStudy: "Public Health",
+    educationLevel: "Master's Degree",
+    location: "Addis Ababa, Ethiopia",
+    rating: 4.9,
+    availability: "full-time",
+    shortlisted: false,
+    skills: ["Epidemiology", "Program Management", "Research", "Data Analysis"]
+  },
+  {
+    id: 2,
+    fullName: "Michael Chen",
+    fieldOfStudy: "Healthcare Management",
+    educationLevel: "Bachelor's Degree",
+    location: "Nairobi, Kenya",
+    rating: 4.8,
+    availability: "part-time",
+    shortlisted: true,
+    skills: ["Operations", "Logistics", "Team Management", "Budget Planning"]
+  },
+  {
+    id: 3,
+    fullName: "Maria Rodriguez",
+    fieldOfStudy: "Nursing",
+    educationLevel: "Bachelor's Degree",
+    location: "Dakar, Senegal",
+    rating: 4.7,
+    availability: "full-time",
+    shortlisted: false,
+    skills: ["Patient Care", "Emergency Response", "Community Health", "Training"]
+  },
+  {
+    id: 4,
+    fullName: "James Wilson",
+    fieldOfStudy: "Environmental Health",
+    educationLevel: "PhD",
+    location: "Cape Town, South Africa",
+    rating: 4.9,
+    availability: "full-time",
+    shortlisted: false,
+    skills: ["Environmental Assessment", "WASH", "Policy Development", "Research"]
+  },
+  {
+    id: 5,
+    fullName: "Amina Hassan",
+    fieldOfStudy: "Nutrition",
+    educationLevel: "Master's Degree",
+    location: "Lagos, Nigeria",
+    rating: 4.6,
+    availability: "part-time",
+    shortlisted: true,
+    skills: ["Nutrition Programs", "Community Outreach", "Monitoring & Evaluation", "Training"]
+  },
+  {
+    id: 6,
+    fullName: "Robert Taylor",
+    fieldOfStudy: "Healthcare IT",
+    educationLevel: "Bachelor's Degree",
+    location: "Kigali, Rwanda",
+    rating: 4.8,
+    availability: "full-time",
+    shortlisted: false,
+    skills: ["Health Information Systems", "Data Management", "Digital Health", "Training"]
+  }
+];
+
 const NGODashboard = () => {
   const [users, setUsers] = useState(mockUsers);
   const [filteredUsers, setFilteredUsers] = useState(mockUsers);

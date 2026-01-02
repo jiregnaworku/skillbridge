@@ -77,7 +77,7 @@ const InputField = ({
         type={type}
         value={value}
         onChange={onChange}
-        className={`w-full pl-10 pr-3 py-3 rounded-xl border focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+        className={`w-full pl-9 pr-3 py-2.5 rounded-lg border focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${
           error ? 'border-red-500' : 'border-gray-300'
         }`}
       />
@@ -139,43 +139,36 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-indigo-800 flex items-center justify-center px-4">
-      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl grid md:grid-cols-2 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
 
-        {/* LEFT */}
-        <div className="hidden md:flex flex-col justify-between p-10 bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
-          <div>
-            <h1 className="text-4xl font-bold">SkillBridge</h1>
-            <p className="mt-3 text-blue-100">
-              Where professionals and NGOs connect for real impact.
-            </p>
+        {/* Header */}
+        <div className="p-6 pb-0">
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-bold text-gray-900">Skill<span className="text-blue-600">Bridge</span></h1>
+            <p className="text-sm text-gray-600 mt-1">Connect with opportunities</p>
           </div>
-          <ul className="space-y-3 text-sm text-blue-100">
-            <li>✔ Verified profiles</li>
-            <li>✔ Skill-based matching</li>
-            <li>✔ Trusted organizations</li>
-          </ul>
-        </div>
-
-        {/* RIGHT */}
-        <div className="p-8 sm:p-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+          
+          <h2 className="text-xl font-bold text-gray-900 mb-2">
             Create account
           </h2>
-          <p className="text-gray-500 mb-6">
-            Join SkillBridge and unlock opportunities
+          <p className="text-gray-500 text-sm mb-4">
+            Join professionals and organizations worldwide
           </p>
+        </div>
 
+        {/* Form */}
+        <div className="px-6 pb-6">
           {errors.general && (
-            <div className="mb-4 text-sm text-red-600 bg-red-50 p-3 rounded-lg">
+            <div className="mb-4 text-sm text-red-600 bg-red-50 p-3 rounded-lg border border-red-200">
               {errors.general}
             </div>
           )}
 
-          <form onSubmit={submit} className="space-y-5">
+          <form onSubmit={submit} className="space-y-4">
 
             {/* ROLE */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2">
               {['user', 'ngo'].map((r) => (
                 <label key={r} className="cursor-pointer">
                   <input
@@ -186,7 +179,7 @@ const RegisterPage = () => {
                     onChange={onChange}
                     className="peer hidden"
                   />
-                  <div className="p-4 rounded-xl border text-center peer-checked:border-blue-600 peer-checked:bg-blue-50">
+                  <div className="p-3 rounded-lg border text-center text-sm peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition-all">
                     {r === 'user' ? 'Professional' : 'Organization'}
                   </div>
                 </label>
@@ -199,7 +192,7 @@ const RegisterPage = () => {
               value={form.fullName}
               onChange={onChange}
               error={errors.fullName}
-              icon={<UserIcon className="h-5 w-5" />}
+              icon={<UserIcon className="h-4 w-4" />}
             />
 
             <InputField
@@ -208,7 +201,7 @@ const RegisterPage = () => {
               value={form.email}
               onChange={onChange}
               error={errors.email}
-              icon={<MailIcon className="h-5 w-5" />}
+              icon={<MailIcon className="h-4 w-4" />}
             />
 
             {/* PASSWORD */}
@@ -216,50 +209,78 @@ const RegisterPage = () => {
               <label className="text-sm font-medium text-gray-700">Password</label>
               <div className="relative mt-1">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                  <LockIcon className="h-5 w-5" />
+                  <LockIcon className="h-4 w-4" />
                 </span>
                 <input
                   type={showPass ? 'text' : 'password'}
                   name="password"
                   value={form.password}
                   onChange={onChange}
-                  className="w-full pl-10 pr-10 py-3 border rounded-xl"
+                  className={`w-full pl-9 pr-9 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${
+                    errors.password ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPass ? <EyeOffIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
+                  {showPass ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
                 </button>
               </div>
+              {errors.password && <p className="text-xs text-red-600 mt-1">{errors.password}</p>}
             </div>
 
             {/* CONFIRM */}
-            <InputField
-              label="Confirm Password"
-              name="confirmPassword"
-              type={showConfirm ? 'text' : 'password'}
-              value={form.confirmPassword}
-              onChange={onChange}
-              error={errors.confirmPassword}
-              icon={<LockIcon className="h-5 w-5" />}
-            />
+            <div>
+              <label className="text-sm font-medium text-gray-700">Confirm Password</label>
+              <div className="relative mt-1">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <LockIcon className="h-4 w-4" />
+                </span>
+                <input
+                  type={showConfirm ? 'text' : 'password'}
+                  name="confirmPassword"
+                  value={form.confirmPassword}
+                  onChange={onChange}
+                  className={`w-full pl-9 pr-9 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm ${
+                    errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  {showConfirm ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+                </button>
+              </div>
+              {errors.confirmPassword && <p className="text-xs text-red-600 mt-1">{errors.confirmPassword}</p>}
+            </div>
 
             {/* TERMS */}
-            <label className="flex gap-2 text-sm text-gray-600">
-              <input type="checkbox" name="agree" checked={form.agree} onChange={onChange} />
-              I agree to Terms & Privacy Policy
+            <label className="flex gap-2 text-xs text-gray-600 items-start">
+              <input 
+                type="checkbox" 
+                name="agree" 
+                checked={form.agree} 
+                onChange={onChange}
+                className="mt-0.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span className="leading-relaxed">
+                I agree to the Terms of Service and Privacy Policy
+              </span>
             </label>
+            {errors.agree && <p className="text-xs text-red-600">{errors.agree}</p>}
 
             <button
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold"
+              className="w-full py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm hover:from-blue-700 hover:to-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             >
               {loading ? 'Creating account...' : 'Create account'}
             </button>
 
-            <p className="text-center text-gray-600 mt-4">
+            <p className="text-center text-gray-600 text-sm mt-4">
               Already have an account?{' '}
               <Link to="/login" className="text-blue-600 font-medium hover:text-blue-700">
                 Sign in
