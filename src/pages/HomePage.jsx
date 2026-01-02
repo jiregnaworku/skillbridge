@@ -262,7 +262,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SkillBridge. All rights reserved.</p>
+            <p>&copy; 2026 SkillBridge. All rights reserved.</p>
           </div>
         </div>
       </footer>
